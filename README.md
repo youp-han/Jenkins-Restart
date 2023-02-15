@@ -11,7 +11,12 @@
 Windows OS 를 사용하는 Slave-Node 들이 모두 off-line 으로 변경되는 오류 발생 시 오류제거를 위해 만들어진 프로그램이다.
 
 What is does
-1. It search for the Jenkins Service
+1. It searches for the Jenkins Service
 2. if it is running, it stops the Jenkins Service (The safe-restart version is coming)
-3. it search for targeted directories under the %jenkins home%/jobs/ folder and deletes them
-4. it starts jenkins Service . ... ( https://yobine.tistory.com/582 )
+3. it searches for targeted directories under the %jenkins home%/jobs/ folder and deletes them
+4. it starts jenkins Service . 
+
+5. I did make a method to stop the service in the safe mode.. but I haven't added cmd options yets.
+
+
+... ( https://yobine.tistory.com/582 )
