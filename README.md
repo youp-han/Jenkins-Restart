@@ -8,4 +8,10 @@
 
 이 후 2.13 버전의 Jenkins 서비스엔 새로운 프로젝트 등록은 하지 않고 있고, 기존 프로젝트들만 필요 시 따로 분리하는 작업을 진행 중이긴 하지만 원치 않는 부서들이 더 많아 해당 오류 발생 시 연락이 바로 왔을 때 조치를 취해 줘야 합니다.
 
-Windows OS 를 사용하는 Slave-Node 들이 모두 off-line 으로 변경되는 오류 발생 시 취해야 하는 방법은 다음과 같다. ... ( https://yobine.tistory.com/582 )
+Windows OS 를 사용하는 Slave-Node 들이 모두 off-line 으로 변경되는 오류 발생 시 오류제거를 위해 만들어진 프로그램이다.
+
+What is does
+1. It search for the Jenkins Service
+2. if it is running, it stops the Jenkins Service (The safe-restart version is coming)
+3. it search for targeted directories under the %jenkins home%/jobs/ folder and deletes them
+4. it starts jenkins Service . ... ( https://yobine.tistory.com/582 )
