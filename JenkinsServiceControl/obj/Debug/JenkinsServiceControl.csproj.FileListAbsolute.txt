@@ -1,0 +1,14 @@
+D:\Work_Codes\testingGroundFolder\Jenkins-Restart\JenkinsServiceControl\bin\Debug\NLog.config
+D:\Work_Codes\testingGroundFolder\Jenkins-Restart\JenkinsServiceControl\bin\Debug\cmd\jenkins-cli.jar
+D:\Work_Codes\testingGroundFolder\Jenkins-Restart\JenkinsServiceControl\bin\Debug\JenkinsServiceControl.exe.config
+D:\Work_Codes\testingGroundFolder\Jenkins-Restart\JenkinsServiceControl\bin\Debug\JenkinsServiceControl.exe
+D:\Work_Codes\testingGroundFolder\Jenkins-Restart\JenkinsServiceControl\bin\Debug\JenkinsServiceControl.pdb
+D:\Work_Codes\testingGroundFolder\Jenkins-Restart\JenkinsServiceControl\bin\Debug\Newtonsoft.Json.dll
+D:\Work_Codes\testingGroundFolder\Jenkins-Restart\JenkinsServiceControl\bin\Debug\NLog.dll
+D:\Work_Codes\testingGroundFolder\Jenkins-Restart\JenkinsServiceControl\bin\Debug\Newtonsoft.Json.xml
+D:\Work_Codes\testingGroundFolder\Jenkins-Restart\JenkinsServiceControl\bin\Debug\NLog.xml
+D:\Work_Codes\testingGroundFolder\Jenkins-Restart\JenkinsServiceControl\obj\Debug\JenkinsServiceControl.csproj.AssemblyReference.cache
+D:\Work_Codes\testingGroundFolder\Jenkins-Restart\JenkinsServiceControl\obj\Debug\JenkinsServiceControl.csproj.CoreCompileInputs.cache
+D:\Work_Codes\testingGroundFolder\Jenkins-Restart\JenkinsServiceControl\obj\Debug\JenkinsServiceControl.csproj.CopyComplete
+D:\Work_Codes\testingGroundFolder\Jenkins-Restart\JenkinsServiceControl\obj\Debug\JenkinsServiceControl.exe
+D:\Work_Codes\testingGroundFolder\Jenkins-Restart\JenkinsServiceControl\obj\Debug\JenkinsServiceControl.pdb
