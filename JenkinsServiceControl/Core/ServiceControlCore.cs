@@ -88,27 +88,33 @@ namespace JenkinsServiceControl.Core
 
         }
 
-        public void SafeStopService()
-        {
-            ExecuteCommandInCMD ecc = new ExecuteCommandInCMD();
 
-            try
-            {
-                ecc.runCommand(serviceURL, jenkinsUserName, jenkinsPassword);
+        #region  SafeStopService Method : in Progress
+        //public void SafeStopService()
+        //{
+        //    ExecuteCommandInCMD ecc = new ExecuteCommandInCMD();
 
-                if (!CheckServiceStopped())
-                {
-                    Console.WriteLine(" Service Stopped Successfully.");
-                    logger.Info(" Service Stopped Successfully.");
-                }
-            }
-            catch(Exception e)
-            {
-                logger.Error(" StopService Error: " + e);
-                throw;
-            }
+        //    try
+        //    {
+        //        ecc.runCommand(serviceURL, jenkinsUserName, jenkinsPassword);
 
-        }
+        //        if (!CheckServiceStopped())
+        //        {
+        //            Console.WriteLine(" Service Stopped Successfully.");
+        //            logger.Info(" Service Stopped Successfully.");
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        logger.Error(" StopService Error: " + e);
+        //        throw;
+        //    }
+
+        //}
+
+        #endregion
+
+
 
         //Safe Stop 은 돌고 있는 job 이 끝나면 서비스가 내려가기 때문에
         //지속적으로 멈추는 시점을 확인 해야 한다.

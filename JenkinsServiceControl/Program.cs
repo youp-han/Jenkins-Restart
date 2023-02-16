@@ -13,11 +13,11 @@ namespace JenkinsServiceControl
         static void Main(string[] args)
         {
             ServiceControlCore jsc = new ServiceControlCore();
-            FolderDelete folderDelete = new FolderDelete();
+            FolderControlCore folderDelete = new FolderControlCore();
 
 
-            folderDelete.upperDirectoryName = ConfigurationSettings.AppSettings["directory_RootName"];
-            jsc.serviceName = ConfigurationSettings.AppSettings["service_Name"];
+            folderDelete.upperDirectoryName = ConfigurationManager.AppSettings["directory_RootName"];
+            jsc.serviceName = ConfigurationManager.AppSettings["service_Name"];
             jsc.timeoutMillsec = 20000;
 
             //jsc.serviceURL = ConfigurationSettings.AppSettings["service_URL"];
@@ -31,7 +31,7 @@ namespace JenkinsServiceControl
             {
                 if (jsc.GetServices())
                 {
-                    //1. Java CLI Safe-Shutdown
+                    //1. Java CLI Safe-Shutdown - in progress
                     //jsc.SafeStopService(serviceName,  serviceURL,  jenkinsUser,  jenkinsPwd);
 
                     //1. Services Stop

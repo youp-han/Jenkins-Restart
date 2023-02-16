@@ -7,7 +7,7 @@ using NLog;
 
 namespace JenkinsServiceControl.Core
 {
-    public class FolderDelete
+    public class FolderControlCore
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
