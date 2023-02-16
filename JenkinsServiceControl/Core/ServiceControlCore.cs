@@ -25,11 +25,20 @@ namespace JenkinsServiceControl.Core
             var checkServiceName = services.FirstOrDefault(s => s.ServiceName == serviceName);
             bool result = false;
 
-            if (checkServiceName != null && checkServiceName.Status.Equals(ServiceControllerStatus.Running))
+
+            if (checkServiceName != null)
             {
-                logger.Info(" < " + serviceName + " > " + " Service Found, ReStart Sequence Started");
-                Console.WriteLine(" < " + serviceName + " > " + " Service Found, ReStart Sequence Started");
-                result = true;
+                if (checkServiceName.Status.Equals(ServiceControllerStatus.Running))
+                {
+                    logger.Info(" < " + serviceName + " > " + " Service Found & running, ReStart Sequence Started");
+                    Console.WriteLine(" < " + serviceName + " > " + " Service Found & running, ReStart Sequence Started");
+                    result = true;
+                }
+                else
+                {
+                    logger.Info(" < " + serviceName + " > " + " Service Found but not running, ReStart Sequence Started");
+                    Console.WriteLine(" < " + serviceName + " > " + " Service Found but not running, ReStart Sequence Started");
+                }
             }
             else
             {
@@ -47,15 +56,13 @@ namespace JenkinsServiceControl.Core
             TimeSpan timeout = TimeSpan.FromMilliseconds(timeoutMillsec);
 
             try
-            {
-
-                switch (flag)
+            { switch (flag)
                 {
                     case 0: //stop
                         service.Stop();
                         service.WaitForStatus(ServiceControllerStatus.Stopped, timeout);
 
-                        if (!CheckServiceStopped())
+                        if (!CheckServiceStatus(0))
                         {
                             logger.Info(" Service Stopped Successfully.");
                             Console.WriteLine("  Service Stopped Successfully.");
@@ -67,14 +74,13 @@ namespace JenkinsServiceControl.Core
                         service.Start();
                         service.WaitForStatus(ServiceControllerStatus.Running, timeout);
 
-                        if (CheckServiceStarted())
+                        if (CheckServiceStatus(1))
                         {
                             logger.Info(" Service Started Successfully.");
                             Console.WriteLine("  Service Started Successfully.");
                         }
                         break;
                 }
-                
             }
             catch (Exception e)
             {
@@ -85,7 +91,6 @@ namespace JenkinsServiceControl.Core
             {
                 service.Dispose();
             }
-
         }
 
 
@@ -116,33 +121,38 @@ namespace JenkinsServiceControl.Core
 
 
 
-        //Safe Stop 은 돌고 있는 job 이 끝나면 서비스가 내려가기 때문에
-        //지속적으로 멈추는 시점을 확인 해야 한다.
-        bool CheckServiceStopped()
+        bool CheckServiceStatus(int flag)
         {
-            if (GetServices())
+            bool result = false;
+            switch (flag)
             {
-                logger.Info(" Service is Stopping.......................................");
-                Console.WriteLine(" Service is Stopping.......................................");
+                case 0: // status 0 = not running
+                    if (GetServices())
+                    {
+                        logger.Info(" Service is Stopping.......................................");
+                        Console.WriteLine(" Service is Stopping.......................................");
 
-                Thread.Sleep(timeoutMillsec/10);
-                CheckServiceStopped();
+                        Thread.Sleep(timeoutMillsec / 10);
+                        CheckServiceStatus(0);
+                    }
+
+                    result= false;
+                    break;
+                case 1: // status 1 = running
+                    if (!GetServices())
+                    {
+                        logger.Info(" Service is Starting.......................................");
+                        Console.WriteLine(" Service  is Starting.......................................");
+                        Thread.Sleep(timeoutMillsec / 10);
+                        CheckServiceStatus(1);
+                    }
+
+                    result= true;
+                    break;
+
             }
-
-            return false;
+            return result;
         }
 
-        bool CheckServiceStarted()
-        {
-            if (!GetServices())
-            {
-                logger.Info(" Service is Starting.......................................");
-                Console.WriteLine(" Service  is Starting.......................................");
-                Thread.Sleep(timeoutMillsec / 10);
-                CheckServiceStarted();
-            }
-
-            return true;
-        }
     }
 }

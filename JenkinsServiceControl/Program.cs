@@ -20,9 +20,9 @@ namespace JenkinsServiceControl
             jsc.serviceName = ConfigurationManager.AppSettings["service_Name"];
             jsc.timeoutMillsec = 20000;
 
-            //jsc.serviceURL = ConfigurationSettings.AppSettings["service_URL"];
-            //jsc.jenkinsUserName = ConfigurationSettings.AppSettings["user_Name"];
-            //jsc.jenkinsPassword = ConfigurationSettings.AppSettings["password"];
+            //jsc.serviceURL = ConfigurationManager.AppSettings["service_URL"];
+            //jsc.jenkinsUserName = ConfigurationManager.AppSettings["user_Name"];
+            //jsc.jenkinsPassword = ConfigurationManager.AppSettings["password"];
 
 
             string[] deleteFolderName = { "lastStable", "lastStableBuild", "lastSuccessful", "lastSuccessfulBuild" };
