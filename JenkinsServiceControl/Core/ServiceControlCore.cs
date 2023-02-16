@@ -6,7 +6,7 @@ using NLog;
 
 namespace JenkinsServiceControl.Core
 {
-    public class JenkinsControlCore
+    public class ServiceControlCore
     {
         public string serviceName { get; set; }
         public int timeoutMillsec { get; set; }

@@ -82,7 +82,7 @@
   <ItemGroup>
     <Compile Include="Core\ExecuteCommandInCMD.cs" />
     <Compile Include="Core\FolderDelete.cs" />
-    <Compile Include="Core\JenkinsControlCore.cs" />
+    <Compile Include="Core\ServiceControlCore.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

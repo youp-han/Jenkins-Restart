@@ -12,7 +12,7 @@ namespace JenkinsServiceControl
 
         static void Main(string[] args)
         {
-            JenkinsControlCore jsc = new JenkinsControlCore();
+            ServiceControlCore jsc = new ServiceControlCore();
             FolderDelete folderDelete = new FolderDelete();
 
 
