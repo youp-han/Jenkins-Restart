@@ -10,13 +10,9 @@ namespace JenkinsServiceControl.Core
     {
         public string serviceName { get; set; }
         public int timeoutMillsec { get; set; }
-        public string serviceURL { get; set; }
-        public string jenkinsUserName { get; set; }
-        public string  jenkinsPassword { get; set; }
 
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
-
 
         //Services 에서 돌고 있는 리스트 출력
         public bool GetServices()
@@ -45,9 +41,9 @@ namespace JenkinsServiceControl.Core
                 logger.Info(" < " + serviceName + " > " + " Service NOT Found");
                 Console.WriteLine(" < " + serviceName + " > " + " Service NOT Found");
             }
-
             return result;
         }
+
 
         
         public void ControlService(int flag)
@@ -62,7 +58,7 @@ namespace JenkinsServiceControl.Core
                         service.Stop();
                         service.WaitForStatus(ServiceControllerStatus.Stopped, timeout);
 
-                        if (!CheckServiceStatus(0))
+                        if (!CheckServiceStatus(flag))
                         {
                             logger.Info(" Service Stopped Successfully.");
                             Console.WriteLine("  Service Stopped Successfully.");
@@ -74,7 +70,7 @@ namespace JenkinsServiceControl.Core
                         service.Start();
                         service.WaitForStatus(ServiceControllerStatus.Running, timeout);
 
-                        if (CheckServiceStatus(1))
+                        if (CheckServiceStatus(flag))
                         {
                             logger.Info(" Service Started Successfully.");
                             Console.WriteLine("  Service Started Successfully.");
@@ -95,6 +91,10 @@ namespace JenkinsServiceControl.Core
 
 
         #region  SafeStopService Method : in Progress
+        //public string serviceURL { get; set; }
+        //public string jenkinsUserName { get; set; }
+        //public string jenkinsPassword { get; set; }
+
         //public void SafeStopService()
         //{
         //    ExecuteCommandInCMD ecc = new ExecuteCommandInCMD();
@@ -120,33 +120,29 @@ namespace JenkinsServiceControl.Core
         #endregion
 
 
-
         bool CheckServiceStatus(int flag)
         {
             bool result = false;
             switch (flag)
             {
-                case 0: // status 0 = not running
+                case 0: 
                     if (GetServices())
                     {
                         logger.Info(" Service is Stopping.......................................");
                         Console.WriteLine(" Service is Stopping.......................................");
 
                         Thread.Sleep(timeoutMillsec / 10);
-                        CheckServiceStatus(0);
+                        CheckServiceStatus(flag);
                     }
-
-                    result= false;
                     break;
-                case 1: // status 1 = running
+                case 1: 
                     if (!GetServices())
                     {
                         logger.Info(" Service is Starting.......................................");
                         Console.WriteLine(" Service  is Starting.......................................");
                         Thread.Sleep(timeoutMillsec / 10);
-                        CheckServiceStatus(1);
+                        CheckServiceStatus(flag);
                     }
-
                     result= true;
                     break;
 
