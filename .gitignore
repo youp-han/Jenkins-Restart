@@ -5,3 +5,5 @@
 /JenkinsServiceControl/JenkinsServiceControl.csproj.user
 /JenkinsServiceControl/cmd/jenkins-cli.jar-eland-jenkins
 /JenkinsServiceControl/cmd/save-shutdown.bat
+/ServiceControl/bin
+/ServiceControl/obj
