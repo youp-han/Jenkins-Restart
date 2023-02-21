@@ -4,7 +4,7 @@ using System.ServiceProcess;
 using System.Threading;
 using NLog;
 
-namespace JenkinsServiceControl.Core
+namespace ServiceControl.Core
 {
     public class ServiceControlCore
     {

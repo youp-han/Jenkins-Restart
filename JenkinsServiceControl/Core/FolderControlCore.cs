@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using NLog;
 
-namespace JenkinsServiceControl.Core
+namespace ServiceControl.Core
 {
     public class FolderControlCore
     {

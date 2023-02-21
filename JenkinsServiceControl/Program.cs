@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Configuration;
-using JenkinsServiceControl.Core;
+using ServiceControl.Core;
 using NLog;
 
 namespace JenkinsServiceControl
@@ -44,7 +44,7 @@ namespace JenkinsServiceControl
                         folderDelete.DeleteFolders();
                     }
 
-                    //4. Jenkins Service Start
+                    //3. Jenkins Service Start
                     jsc.ControlService(1);
                     Console.WriteLine(" < " + jsc.serviceName + " > " + " Service Restarted.... Restart Sequence Ended");
                     Console.ReadLine();
