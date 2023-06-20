@@ -41,7 +41,7 @@ namespace JenkinsServiceControl
                     foreach (var folderName in deleteFolderName)
                     {
                         folderDelete.directoryName = folderName;
-                        folderDelete.DeleteFolders();
+                        folderDelete.SearchAndDeleteFolders();
                     }
 
                     //3. Jenkins Service Start

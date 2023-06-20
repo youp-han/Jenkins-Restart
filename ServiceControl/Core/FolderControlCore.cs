@@ -18,7 +18,7 @@ namespace ServiceControl.Core
         public string upperDirectoryName { get; set; }
         public string directoryName { get; set; }
 
-        public void DeleteFolders()
+        public void SearchAndDeleteFolders()
         {
             //1. Get Directories
             var folderFound = SearchDirectories().ToList();
@@ -77,7 +77,7 @@ namespace ServiceControl.Core
         }
 
 
-        //Path 가 있는지 여부 확인
+        //Path  여부 확인
         bool CheckPath(string path)
         {
             Regex matchRule = new Regex(@"^(([a-zA-Z]\:)|(\\))(\\{1}|((\\{1})[^\\]([^/:*?<>""|]*))+)$");
