@@ -7,3 +7,5 @@
 /JenkinsServiceControl/cmd/save-shutdown.bat
 /ServiceControl/bin
 /ServiceControl/obj
+._.vs
+._.git
