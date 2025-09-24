@@ -4,6 +4,10 @@
 
 This is a C# console application designed to restart the Jenkins service, clear specific cache/build-related folders, and then restart the service.
 
+## Development Log
+
+- [Blog Post](https://yobine.tistory.com/582)
+
 ## Features
 
 - Checks if the specified Jenkins service is running.
